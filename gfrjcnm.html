@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Я тебя люблю, бусинка 💖</title>
+    <style>
+        /* Сброс и базовые настройки */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+            /* Нежно-розовый и оранжевый градиент */
+            background: linear-gradient(145deg, #ffe4ec 0%, #ffd9c4 40%, #ffb7a5 100%);
+            padding: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Плавающие сердечки и блики на фоне */
+        .bg-decor {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-decor span {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.25;
+            animation: float 14s infinite ease-in-out;
+            color: #ff8a7a;
+            text-shadow: 0 0 8px rgba(255, 190, 160, 0.8);
+        }
+
+        /* Разные позиции и задержки для декоративных элементов */
+        .bg-decor span:nth-child(1) { top: 8%; left: 5%; font-size: 3rem; animation-duration: 18s; animation-delay: 0s; opacity: 0.2; }
+        .bg-decor span:nth-child(2) { top: 72%; left: 88%; font-size: 5rem; animation-duration: 22s; animation-delay: 2s; opacity: 0.15; }
+        .bg-decor span:nth-child(3) { top: 45%; left: 15%; font-size: 2.5rem; animation-duration: 16s; animation-delay: 4s; opacity: 0.3; }
+        .bg-decor span:nth-child(4) { top: 85%; left: 12%; font-size: 4rem; animation-duration: 25s; animation-delay: 1s; opacity: 0.12; }
+        .bg-decor span:nth-child(5) { top: 18%; left: 82%; font-size: 3.8rem; animation-duration: 20s; animation-delay: 3s; opacity: 0.18; }
+        .bg-decor span:nth-child(6) { top: 55%; left: 70%; font-size: 2rem; animation-duration: 15s; animation-delay: 5s; opacity: 0.28; }
+        .bg-decor span:nth-child(7) { top: 30%; left: 45%; font-size: 6rem; animation-duration: 28s; animation-delay: 0s; opacity: 0.08; }
+        .bg-decor span:nth-child(8) { top: 10%; left: 60%; font-size: 2.8rem; animation-duration: 19s; animation-delay: 6s; opacity: 0.22; }
+        .bg-decor span:nth-child(9) { top: 88%; left: 48%; font-size: 3.2rem; animation-duration: 24s; animation-delay: 3s; opacity: 0.16; }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg) scale(1); }
+            50% { transform: translateY(-25px) rotate(8deg) scale(1.05); }
+            100% { transform: translateY(0px) rotate(0deg) scale(1); }
+        }
+
+        /* Основная карточка с надписью */
+        .valentine-card {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 700px;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: rgba(255, 245, 235, 0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 72px 24px 72px 24px;
+            box-shadow: 0 25px 40px -12px rgba(255, 140, 120, 0.5), 0 0 0 2px rgba(255, 220, 200, 0.7) inset, 0 0 0 4px rgba(255, 200, 170, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: cardGlow 6s infinite alternate;
+        }
+
+        .valentine-card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 30px 50px -10px rgba(255, 130, 100, 0.6), 0 0 0 3px rgba(255, 210, 180, 0.9) inset;
+        }
+
+        @keyframes cardGlow {
+            0% { box-shadow: 0 25px 40px -12px rgba(255, 140, 120, 0.5), 0 0 0 2px rgba(255, 220, 200, 0.7) inset, 0 0 0 4px rgba(255, 200, 170, 0.3); }
+            100% { box-shadow: 0 30px 55px -8px rgba(255, 120, 90, 0.7), 0 0 0 3px rgba(255, 240, 220, 1) inset, 0 0 0 8px rgba(255, 180, 150, 0.4); }
+        }
+
+        /* Главная надпись */
+        .love-message {
+            font-size: clamp(2.6rem, 12vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: 0.02em;
+            color: #b34e3a;
+            text-shadow: 0 4px 15px rgba(255, 170, 140, 0.8), 0 0 0 1px #ffe2d0, 0 0 20px #ffb09b;
+            word-break: break-word;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .love-message .line1 {
+            display: block;
+            background: linear-gradient(135deg, #d45b4a, #c13e2c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: none;
+            filter: drop-shadow(0 6px 12px rgba(255, 150, 120, 0.6));
+        }
+
+        .love-message .line2 {
+            display: block;
+            font-size: 0.9em;
+            background: linear-gradient(135deg, #d45b4a, #e07a5f, #c13e2c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: none;
+            filter: drop-shadow(0 4px 10px rgba(255, 140, 110, 0.6));
+            margin-top: 0.1em;
+            letter-spacing: 0.05em;
+        }
+
+        /* Сердечко в главной надписи */
+        .heart-emoji {
+            display: inline-block;
+            font-size: 1.2em;
+            vertical-align: middle;
+            margin-left: 0.15em;
+            filter: drop-shadow(0 0 8px #ff9f8f);
+            animation: heartbeat 1.6s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.22); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.18); }
+            70% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Адаптив для очень маленьких экранов */
+        @media (max-width: 480px) {
+            .valentine-card {
+                padding: 2.5rem 1.2rem;
+                border-radius: 48px 16px 48px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Фоновые декоративные сердечки и бусинки -->
+    <div class="bg-decor">
+        <span>❤️</span>
+        <span>💖</span>
+        <span>🧡</span>
+        <span>💗</span>
+        <span>💕</span>
+        <span>✨</span>
+        <span>💘</span>
+        <span>💝</span>
+        <span>💓</span>
+    </div>
+
+    <!-- Основная валентинка -->
+    <div class="valentine-card">
+        <div class="love-message">
+            <span class="line1">я тебя люблю,</span>
+            <span class="line2">
+                бусинка
+                <span class="heart-emoji">💖</span>
+            </span>
+        </div>
+    </div>
+
+    <script>
+        // Лёгкая анимация парения для карточки
+        (function() {
+            const card = document.querySelector('.valentine-card');
+            if (!card) return;
+            let start = null;
+            const duration = 6000;
+
+            function floatCard(timestamp) {
+                if (!start) start = timestamp;
+                const progress = (timestamp - start) % duration;
+                const offsetY = Math.sin(progress / duration * Math.PI * 2) * 5;
+                card.style.transform = `translateY(${offsetY}px) scale(1.001)`;
+                requestAnimationFrame(floatCard);
+            }
+
+            if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+                requestAnimationFrame(floatCard);
+            }
+        })();
+    </script>
+</body>
+</html>
